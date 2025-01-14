@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package mysql_service;
+
+option go_package = "golang_client/mysql_service";
+
+service MySQLService {
+  rpc StoreAndReplicateData(StoreAndReplicateRequest) returns (StoreAndReplicateResponse);
+}
+
+message StoreAndReplicateRequest {
+  string id = 1;
+  string data = 2;
+}
+
+message StoreAndReplicateResponse {
+  bool success = 1;
+}

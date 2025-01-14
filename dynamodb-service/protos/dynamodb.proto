@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package dynamodb_service;
+
+option go_package = "golang_client/dynamodb_service";
+
+service DynamoDBService {
+  rpc StoreData(StoreDataRequest) returns (StoreDataResponse);
+}
+
+message StoreDataRequest {
+  string id = 1;
+  string data = 2;
+}
+
+message StoreDataResponse {
+  bool success = 1;
+}
